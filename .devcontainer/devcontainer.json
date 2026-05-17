@@ -1,0 +1,32 @@
+{
+    "name": "WiByte Python Lab",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {}
+    },
+    "forwardPorts": [6080],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+               "github.copilot", 
+               "ms-python.python",
+            ],
+            "settings": {
+                // Disables the "Quick Fix" lightbulb so students must fix their own typos
+
+                // Efficacy of all of this and many other experiments is debatable. Ctrl + i could not be tamed, And the sidebar chat also looks unpredictable. 
+                "editor.lightbulb.enabled": "off",
+                "github.copilot.editor.enableCodeActions": false,
+
+                // Standard coding aids (IntelliSense) stay active
+                "editor.suggestOnTriggerCharacters": true,
+                "editor.parameterHints.enabled": true,
+
+                // This ensures the README is the first thing they see
+                "workbench.startupEditor": "readme"
+            }
+        }
+    },
+    // This command installs Turtle/Tkinter as needed. 
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3-tk"
+}
